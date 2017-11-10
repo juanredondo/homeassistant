@@ -12,7 +12,7 @@ AgurRedmi4A:
   mac: 00:EC:0A:D0:36:6F
   picture: https://home-assistant.io/images/favicon-192x192.png
   gravatar: agurtz40@gmail.com
-  track: yes
+  track: no 
   hide_if_away: no
 
 009ec8b6b20e:
@@ -95,7 +95,7 @@ dnbyhiol_juanphone:
   name: Juan
   picture:
   gravatar: juan.redondo.martinez@gmail.com
-  track: true
+  track: false
   vendor:
 
 dnbyhiol_juangps:
@@ -114,4 +114,24 @@ dnbyhiol_juan_phone_g:
   name: dnbyhiol
   picture:
   track: false
+  vendor:
+
+juanphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Juan
+  picture:
+  gravatar: juan.redondo.martinez@gmail.com
+  track: true
+  vendor:
+
+agurphone:
+  hide_if_away: false
+  icon:
+  mac:
+  gravatar: agurtz40@gmail.com
+  name: Agur
+  picture:
+  track: true
   vendor:
