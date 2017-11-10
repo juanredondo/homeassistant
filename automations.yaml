@@ -1,0 +1,44 @@
+- id: at_home
+  alias: En casa
+  trigger:
+  - entity_id: group.familia
+    from: not_home
+    platform: state
+    to: home
+  action:
+  - data:
+      entity_id: climate.caldera_thermostat
+      temperature: 28
+    service: climate.set_temperature
+- id: not_home
+  alias: Todos fuera
+  trigger:
+  - entity_id: group.familia
+    from: home
+    platform: state
+    to: not_home
+  action:
+  - data:
+      entity_id: climate.caldera_thermostat
+      temperature: 19
+    service: climate.set_temperature
+- id: caldera_noche
+  alias: Caldera por la noche
+  trigger:
+  - at: '23:00'
+    platform: time
+  action:
+  - data:
+      entity_id: climate.caldera_thermostat
+      temperature: 19
+    service: climate.set_temperature
+- id: caldera_dia
+  alias: Caldera por el dia
+  trigger:
+  - at: '8:00'
+    platform: time
+  action:
+  - data:
+      entity_id: climate.caldera_thermostat
+      temperature: 21
+    service: climate.set_temperature

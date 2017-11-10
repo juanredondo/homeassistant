@@ -1,0 +1,117 @@
+
+JuanMi5s:
+  name: Juan
+  mac: 4C:49:E3:1E:3F:C6
+  picture: https://home-assistant.io/images/favicon-192x192.png
+  gravatar: juan.redondo.martinez@gmail.com
+  track: no
+  hide_if_away: no
+
+AgurRedmi4A:
+  name: Agur
+  mac: 00:EC:0A:D0:36:6F
+  picture: https://home-assistant.io/images/favicon-192x192.png
+  gravatar: agurtz40@gmail.com
+  track: yes
+  hide_if_away: no
+
+009ec8b6b20e:
+  name: 009ec8b6b20e
+  mac: 00:9e:c8:b6:b2:0e
+  picture:
+  track: no
+  hide_if_away: no
+
+001e5286d059:
+  name: 001e5286d059
+  mac: 00:1e:52:86:d0:59
+  picture:
+  track: no
+  hide_if_away: no
+
+788102033b00:
+  name: 788102033b00
+  mac: 78:81:02:03:3b:00
+  picture:
+  track: no
+  hide_if_away: no
+
+a4d1d26f14c7:
+  name: a4d1d26f14c7
+  mac: a4:d1:d2:6f:14:c7
+  picture:
+  track: no
+  hide_if_away: no
+
+b827eb410301:
+  name: b827eb410301
+  mac: b8:27:eb:41:03:01
+  picture: 
+  track: no
+  hide_if_away: no
+
+5ccf7ff9a22e:
+  name: WifiRele
+  hide_if_away: false
+  icon: mdi:toggle-switch
+  mac: 5C:CF:7F:F9:A2:2E
+  picture:
+  track: no
+  vendor: Espressif Inc.
+
+
+mibox3:
+  hide_if_away: false
+  icon:
+  mac: BT_00:9E:C8:B2:1E:2F
+  name: MIBOX3
+  picture:
+  track: false
+  vendor: Xiaomi Communications Co Ltd
+
+mi5s_plus:
+  hide_if_away: false
+  icon:
+  gravatar: juan.redondo.martinez@gmail.com
+  mac: BT_4C:49:E3:0E:3F:C6
+  name: JuanBT
+  picture:
+  track: no
+  vendor: Xiaomi Communications Co Ltd
+
+wiko_riff2:
+  hide_if_away: false
+  icon:
+  mac: BT_00:68:58:00:09:9E
+  name: WIKO riff2
+  picture:
+  track: false
+  vendor: unknown
+
+dnbyhiol_juanphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Juan
+  picture:
+  gravatar: juan.redondo.martinez@gmail.com
+  track: true
+  vendor:
+
+dnbyhiol_juangps:
+  hide_if_away: false
+  icon:
+  mac:
+  name: dnbyhiol
+  picture:
+  track: false
+  vendor:
+
+dnbyhiol_juan_phone_g:
+  hide_if_away: false
+  icon:
+  mac:
+  name: dnbyhiol
+  picture:
+  track: false
+  vendor:

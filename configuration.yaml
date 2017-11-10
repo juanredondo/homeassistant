@@ -1,0 +1,135 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 40.4615786
+  longitude: -3.713619
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 720
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Madrid
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+weather:
+  - platform: openweathermap
+    api_key: !secret openweathermap
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+sensor:
+  - platform: dht
+    name : "rpi"
+    sensor: DHT11
+    temperature_offset: -2
+    pin: 15
+    monitored_conditions:
+      - temperature
+      - humidity
+
+switch:
+  - platform: mqtt
+    name: "caldera"
+    state_topic: "home/sonoff/caldera/1/stat"
+    command_topic: "home/sonoff/caldera/1"
+    qos: 1
+    payload_on: "on"
+    payload_off: "off"
+    retain: false
+
+device_tracker:
+#  - platform: nmap_tracker
+#    consider_home: 10
+#    interval_seconds: 30
+#    hosts:
+#      - 192.168.0.100
+#      - 192.168.0.101
+#      - 192.168.0.110
+# Highly recommended: assign IP address for devices you want to track so you can know where to find them. The three IP addresses above are examples for three mobile devices.
+
+#  - platform: bluetooth_tracker
+  - platform: owntracks
+  - platform: gplus
+    id: JuanPhone
+    url : 'https://plus.google.com/u/3/_/PlusAppUi/data?ds.extension=61953430&f.sid=5048932727023975081&hl=es&soc-app=199&soc-platform=1&soc-device=1&_reqid=641461&rt=c'
+    cookie_sid: 'ZAXtsrd10flyw3v54Yvsekuh_ra3Wok5FrF9xUji0ZsH60soe3wf5dHjXSGcpOb7cfJ4RA.'     
+    cookie_hsid: 'AzUbg2trJ4nWioRiz'
+    cookie_ssid: 'AN3jGJNC65I8r2xi9'
+    data_freq: '[[[61953430,[{\"61953430\":[\"GPLUS_APP\"]}],null,null,0]]]' 
+    home_url: 'https://plus.google.com/u/3/112661672332679777888?hl=es'
+
+mqtt:
+  broker: m23.cloudmqtt.com 
+  port: 17688
+  username: dnbyhiol
+  password: SBgo1iUvbBnb
+
+# Full example configuration.yaml entry
+climate:
+  - platform: generic_thermostat
+    name: caldera_thermostat
+    heater: switch.caldera
+    target_sensor: sensor.rpi_temperature
+    min_temp: 15
+    max_temp: 29
+    target_temp: 21
+    hot_tolerance: 0.5
+    cold_tolerance: 0.5
+    min_cycle_duration:
+      minutes: 5
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.mqtt: debug
