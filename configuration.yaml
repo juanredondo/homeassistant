@@ -77,7 +77,16 @@ sensor:
     monitored_conditions:
       - temperature
       - humidity
+  - platform: skybeacon
+    mac: 'C6:92:8F:D1:2D:AB'
+    monitored_conditions:
+      - temperature
 
+  - platform: miflora
+    mac: 'C4:7C:8D:65:CF:4B'
+    monitored_conditions:
+      - temperature        
+     
 switch:
   - platform: mqtt
     name: "caldera"
