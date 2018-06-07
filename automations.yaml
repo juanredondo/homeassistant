@@ -7,8 +7,12 @@
     to: home
   action:
   - data:
-      entity_id: climate.caldera_thermostat
-      temperature: 21
+      entity_id: climate.caldera_dia
+      temperature: 20
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.caldera_noche
+      temperature: 18
     service: climate.set_temperature
 - id: not_home
   alias: Todos fuera
@@ -19,26 +23,46 @@
     to: not_home
   action:
   - data:
-      entity_id: climate.caldera_thermostat
-      temperature: 17
+      entity_id: climate.caldera_dia
+      temperature: 10
+    service: climate.set_temperature
+  - data:
+      entity_id: climate.caldera_noche
+      temperature: 10
     service: climate.set_temperature
 - id: caldera_noche
   alias: Caldera por la noche
   trigger:
-  - at: '23:00'
+  - at: '20:00'
     platform: time
   action:
   - data:
-      entity_id: climate.caldera_thermostat
-      temperature: 19
+      entity_id: climate.caldera_noche
+      temperature: 18
     service: climate.set_temperature
+  - data:
+      entity_id: climate.caldera_dia
+      temperature: 10
+    service: climate.set_temperature
+  condition:
+  - condition: state
+    entity_id: group.familia
+    state: home
 - id: caldera_dia
   alias: Caldera por el dia
   trigger:
-  - at: '8:00'
+  - at: '7:00'
     platform: time
   action:
   - data:
-      entity_id: climate.caldera_thermostat
-      temperature: 21
+      entity_id: climate.caldera_dia
+      temperature: 20
     service: climate.set_temperature
+  - data:
+      entity_id: climate.caldera_noche
+      temperature: 10
+    service: climate.set_temperature
+  condition:
+  - condition: state
+    entity_id: group.familia
+    state: home

@@ -77,15 +77,29 @@ sensor:
     monitored_conditions:
       - temperature
       - humidity
-  - platform: skybeacon
-    mac: 'C6:92:8F:D1:2D:AB'
-    monitored_conditions:
-      - temperature
+  - platform: waqi
+    token: 68d806602bcad243006b45b613857619f42158fe
+    locations:
+      - madrid
+    stations:
+      - plaza de castilla
 
   - platform: miflora
+    name: 'Salon'
     mac: 'C4:7C:8D:65:CF:4B'
+    median: 1
+    retries: 10
+    monitored_conditions:
+      - temperature
+  
+  - platform: miflora
+    name: 'Cuarto'
+    mac: 'C4:7C:8D:65:AD:5F'
+    median: 1
+    retries: 10
     monitored_conditions:
       - temperature        
+      
      
 switch:
   - platform: mqtt
@@ -135,18 +149,32 @@ mqtt:
 # Full example configuration.yaml entry
 climate:
   - platform: generic_thermostat
-    name: caldera_thermostat
+    name: caldera_dia
     heater: switch.caldera
-    target_sensor: sensor.rpi_temperature
-    min_temp: 15
+    target_sensor: sensor.Salon_temperature
+    min_temp: 10
     max_temp: 29
-    target_temp: 21
-    hot_tolerance: 0.5
-    cold_tolerance: 0.5
+    target_temp: 20
+    hot_tolerance: 0.1
+    cold_tolerance: 0.1
     min_cycle_duration:
       minutes: 5
+    away_temp: 10
+
+  - platform: generic_thermostat
+    name: caldera_noche
+    heater: switch.caldera
+    target_sensor: sensor.Cuarto_temperature
+    min_temp: 10
+    max_temp: 24
+    target_temp: 18
+    hot_tolerance: 0.1
+    cold_tolerance: 0.1
+    min_cycle_duration:
+      minutes: 5
+    away_temp: 10
 
 logger:
-  default: info
-  logs:
-    homeassistant.components.mqtt: debug
+  default: debug
+
+

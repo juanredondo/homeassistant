@@ -1,0 +1,12 @@
+media_player.mibox3:
+  name:
+  platform: cast
+  unique_id: 1d94e976-6b40-96e4-30de-e6a6fd500e38
+media_player.mi_box:
+  name:
+  platform: plex
+  unique_id: d09a209b4af5904-com-plexapp-android
+media_player.mi_5s_plus:
+  name:
+  platform: plex
+  unique_id: ad1d2c685015b461-com-plexapp-android
