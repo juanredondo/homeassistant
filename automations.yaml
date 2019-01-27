@@ -30,6 +30,7 @@
       entity_id: climate.caldera_noche
       temperature: 10
     service: climate.set_temperature
+
 - id: caldera_noche
   alias: Caldera por la noche
   trigger:
@@ -48,6 +49,7 @@
   - condition: state
     entity_id: group.familia
     state: home
+
 - id: caldera_dia
   alias: Caldera por el dia
   trigger:

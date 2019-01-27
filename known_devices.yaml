@@ -4,7 +4,7 @@ JuanMi5s:
   mac: 4C:49:E3:1E:3F:C6
   picture: https://home-assistant.io/images/favicon-192x192.png
   gravatar: juan.redondo.martinez@gmail.com
-  track: no
+  track: yes
   hide_if_away: no
 
 AgurRedmi4A:
@@ -12,7 +12,13 @@ AgurRedmi4A:
   mac: 00:EC:0A:D0:36:6F
   picture: https://home-assistant.io/images/favicon-192x192.png
   gravatar: agurtz40@gmail.com
-  track: no 
+  track: yes 
+  hide_if_away: no
+
+Fred: 
+  name: Fred
+  mac: 98:F1:70:23:27:3B
+  track: yes
   hide_if_away: no
 
 009ec8b6b20e:
@@ -123,7 +129,7 @@ juanphone:
   name: Juan
   picture:
   gravatar: juan.redondo.martinez@gmail.com
-  track: true
+  track: false
   vendor:
 
 agurphone:
@@ -133,5 +139,5 @@ agurphone:
   gravatar: agurtz40@gmail.com
   name: Agur
   picture:
-  track: true
+  track: false
   vendor:
