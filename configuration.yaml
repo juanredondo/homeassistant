@@ -128,7 +128,7 @@ device_tracker:
       - 192.168.0.100
       - 192.168.0.101
       - 192.168.0.164
-#      - 192.168.0.110
+      - 192.168.0.158
 # Highly recommended: assign IP address for devices you want to track so you can know where to find them. The three IP addresses above are examples for three mobile devices.
 
 #  - platform: bluetooth_tracker
